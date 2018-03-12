@@ -112,10 +112,10 @@ def missing_deployments_message(service):
     return message
 
 
-def get_deploy_info(deploy_file_path):
-    deploy_info = read_deploy(deploy_file_path)
+def get_deploy_info(soa_config_file_path):
+    deploy_info = read_deploy(soa_config_file_path)
     if not deploy_info:
-        paasta_print(PaastaCheckMessages.DEPLOY_YAML_MISSING)
+        paasta_print('Error encountered with %s' % soa_config_file_path)
         exit(1)
     return deploy_info
 
